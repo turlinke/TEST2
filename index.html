@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Garcia Landscaping</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">🌿 Garcia Landscaping</div>
+      <ul>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="#contact" class="btn-nav">Get a Quote</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Your Lawn, Our Passion</h1>
+      <p>Professional landscaping and lawn care services that keep your property looking sharp all season long. Based in Central Texas, serving the whole state.</p>
+      <a href="#contact" class="btn">Get a Free Estimate</a>
+    </div>
+  </section>
+
+  <section id="services" class="services">
+    <h2>What We Do</h2>
+    <div class="cards">
+      <div class="card">
+        <span class="icon">🏡</span>
+        <h3>Lawn Mowing</h3>
+        <p>Consistent, reliable mowing on a schedule that works for you. Edging and trimming included with every mow.</p>
+        <a href="services.html#mowing" class="card-link">View Options &amp; Pricing →</a>
+      </div>
+      <div class="card">
+        <span class="icon">🌳</span>
+        <h3>Landscaping</h3>
+        <p>Tree trimming, rock &amp; metal beds, mulch, fertilizer, planting, and more. Pricing depends on the job.</p>
+        <a href="services.html#landscaping" class="card-link">Learn More →</a>
+      </div>
+      <div class="card">
+        <span class="icon">✂️</span>
+        <h3>Edging &amp; Trimming</h3>
+        <p>Clean lines along driveways, walkways, and garden beds for that polished, professional look.</p>
+        <a href="services.html#edging" class="card-link">Learn More →</a>
+      </div>
+      <div class="card">
+        <span class="icon">🍂</span>
+        <h3>Seasonal Cleanup</h3>
+        <p>Spring and fall cleanups including leaf removal, dethatching, and yard debris hauling.</p>
+        <a href="services.html#seasonal" class="card-link">Learn More →</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <h2>Why Garcia Landscaping?</h2>
+    <ul class="features">
+      <li>✅ Locally owned and operated</li>
+      <li>✅ Free estimates, no contracts</li>
+      <li>✅ Flexible scheduling</li>
+    </ul>
+    <a href="about.html" class="card-link" style="display:inline-block; margin-top:1.5rem; color:#1b5e20;">Read Our Story →</a>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Get Your Free Estimate</h2>
+    <p>Tell us about your yard and we'll get back to you as soon as possible.</p>
+    <div class="contact-info">
+      <p>📞 <a href="tel:+17373541759" style="color:#fff;">(737) 354-1759</a></p>
+      <p>📧 <a href="mailto:gtomasefrain@gmail.com" style="color:#fff;">gtomasefrain@gmail.com</a></p>
+    </div>
+    <form id="contact-form" action="https://formspree.io/f/xkoqypab" method="POST">
+      <label for="name" class="sr-only">Your Name</label>
+      <input type="text" id="name" name="name" placeholder="Your Name" required>
+      <label for="phone" class="sr-only">Phone Number</label>
+      <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
+      <label for="message" class="sr-only">Tell us about your yard</label>
+      <textarea id="message" name="message" placeholder="Tell us about your yard..." required></textarea>
+      <button type="submit">Send Request</button>
+    </form>
+    <div id="form-success" style="display:none;">
+      <span style="font-size:3rem;">✅</span>
+      <p style="font-size:1.3rem; margin-top:1rem;">Form submitted! We'll get back to you as soon as possible.</p>
+    </div>
+    <script>
+      const form = document.getElementById('contact-form');
+      const success = document.getElementById('form-success');
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        }).then(function(response) {
+          if (response.ok) {
+            form.style.display = 'none';
+            success.style.display = 'block';
+            form.reset();
+          } else {
+            alert('Oops! Something went wrong. Please try again.');
+          }
+        }).catch(function() {
+          alert('Oops! Something went wrong. Please try again.');
+        });
+      });
+    </script>
+  </section>
+
+  <footer>
+    <p>📞 <a href="tel:+17373541759" style="color:rgba(255,255,255,0.8);">(737) 354-1759</a> &nbsp;|&nbsp; 📧 <a href="mailto:gtomasefrain@gmail.com" style="color:rgba(255,255,255,0.8);">gtomasefrain@gmail.com</a></p>
+    <p>&copy; 2026 Garcia Landscaping. All rights reserved.</p>
+  </footer>
+</body>
+</html>
